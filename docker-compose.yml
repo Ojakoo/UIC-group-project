@@ -11,8 +11,8 @@ services:
     ports:
       - 7777:7777
     depends_on:
-      - database
-      - flyway
+      database:
+        condition: service_healthy
     env_file:
       - project.env
 
@@ -22,6 +22,11 @@ services:
     restart: "no"
     env_file:
         - project.env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U username"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   flyway:
     image: flyway/flyway:8.4.0-alpine
