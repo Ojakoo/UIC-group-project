@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/papercss@1.9.0/dist/paper.min.css"
+    />
+    <title>Tree scout</title>
+  </head>
+  <body class="container margin-bottom-large margin-top-large">
+    <nav class="border split-nav">
+      <div class="nav-brand">
+        <h3><a href="/">Main page</a></h3>
+      </div>
+      <div class="collapsible">
+        <input id="collapsible" type="checkbox" name="collapsible">
+        <label for="collapsible">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </label>
+        <div class="collapsible-body">
+          <ul class="inline">
+            <% if ( it.user ) { %>
+              <form method="POST" action="/auth/logout">
+                <li><a href="/topics">Topics</a></li>
+                <li><a href="/quiz">Quiz</a></li>
+                <li><input class="paper-btn" type="submit" value="Logout"/></li>
+              </form>
+            <% } else { %>
+              <li><a href="/auth/login">Login</a></li>
+              <li><a href="/auth/register">Register</a></li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <%~ it.body %>
+    <% if (it.errors) { %>
+    <ul>
+      <% Object.keys(it.errors).forEach((attribute) => { %>
+        <% Object.values(it.errors[attribute]).forEach((err) => { %>
+          <li><%= err %></li>
+        <% }); %>
+      <% }); %>
+    </ul>
+    <% } %>
+  </body>
+</html>
