@@ -1,10 +1,7 @@
-CREATE TABLE names (
+CREATE TABLE entries {
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL
-);
-
-CREATE TABLE addresses (
-  id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
-  address TEXT NOT NULL
-);
+  amount INT NOT NULL,
+  location TEXT NOT NULL,
+  growth INT NOT NULL,
+  time DATETIME DEFAULT NOW
+}
