@@ -23,6 +23,7 @@
           <ul class="inline">
             <% if ( it.user ) { %>
               <form method="POST" action="/auth/logout">
+                <li><a href="/data">Data</a></li>
                 <li><a href="/entries">Entries</a></li>
                 <li><input class="paper-btn" type="submit" value="Logout"/></li>
               </form>

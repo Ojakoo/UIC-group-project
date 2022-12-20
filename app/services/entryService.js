@@ -1,4 +1,4 @@
-import { executeQuery } from "../database/database";
+import { executeQuery } from "../database/database.js";
 
 const getAll = async () => {
   const data = await executeQuery(
@@ -8,7 +8,7 @@ const getAll = async () => {
 
 const add = async ({ amount, location, growth }) => {
   await executeQuery(
-    "INSERT INTO question_answers (amount, location, growth) VALUES ($amount, $location, $growth);",
+    "INSERT INTO entries (amount, location, growth) VALUES ($amount, $location, $growth);",
     {
       amount: amount,
       location: location,

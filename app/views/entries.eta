@@ -1,0 +1,11 @@
+<% layout("./layouts/layout.eta") %>
+
+<h1>Entries</h1>
+<div>
+  <form method="POST" action="/entries">
+    Location: <input type="text" name="location" <% if ( it.formData ) { %> value="<%= it.formData.location %>" <% } %>/><br/>
+    Amount: <input type="number" name="amount" <% if ( it.formData ) { %> value="<%= it.formData.amount %>" <% } %>/><br/>
+    Growth: <input type="number" name="growth" <% if ( it.formData ) { %> value="<%= it.formData.growth %>" <% } %>/><br/>
+    <input type="submit" value="Add entry!"/>
+  </form>
+</div>
